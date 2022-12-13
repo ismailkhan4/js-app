@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="auth.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form>
+        <h3>Login Here</h3>
+
+        <label for="username">Username</label>
+        <input type="text" placeholder="Email or Phone" id="username">
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password">
+
+        <button id="loginSubmit">Log In</button>
+        <div class="social" style="align-items: center;">
+            Not registered? 
+            <a class="fb" href="signup.html"><i class="fab fa-google"></i> Sign Up</a>
+        </div>
+    </form>
+    <script>
+        document.querySelector('#loginSubmit').onclick = function (e) {
+            let useranme = document.querySelector('#username').value
+            let password = document.querySelector('#password').value
+            let values = JSON.parse(localStorage.getItem('login'))
+            console.log(values[0], values[1])
+            if (values[0] == useranme && values[1] == password) {
+                alert('Logged In')
+                window.location.href = '/dashboard.html'
+            }else {
+                alert('Invalid Credentials')
+            }
+            e.preventDefault()
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="auth.css">
+    <title>Assignment</title>
+</head>
+
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form>
+        <h3>Create Your Account</h3>
+
+        <label for="fullname">Full Name</label>
+        <input type="text" name="fullname" id="fullname" placeholder="Full Name" required>
+
+        <label for="username">User Name</label>
+        <input type="text" name="username" id="username" placeholder="Username" required>
+
+        <label for="email">Eamil</label>
+        <input type="email" name="email" id="email" placeholder="Email" required>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Password" required>
+
+        <button id="submit">Sign Up</button>
+        <div class="social" style="align-items: center;">
+            Already registered? 
+            <a class="fb" href="assignment/index.html"><i class="fab fa-google"></i> Log In</a>
+        </div>
+    </form>
+    <!-- <form method="post" action="/login.html">
+        <label for="fullname">Full Name</label>
+        <input type="text" name="fullname" id="fullname" placeholder="Full Name" required>
+        <label for="username">User Name</label>
+        <input type="text" name="username" id="username" placeholder="Username" required>
+        <label for="email">Eamil</label>
+        <input type="email" name="email" id="email" placeholder="Email" required>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Password" required>
+        <input type="submit" value="Signup" id="submit">
+    </form> -->
+    <script>
+        document.querySelector('#submit').onclick = function (e) {
+            let username = document.querySelector('#username').value
+            let password = document.querySelector('#password').value
+            if (username == '' || password == '') {
+                alert('Username or Password is mandatory')
+                return false
+            } else {
+                localStorage.setItem('login', JSON.stringify([username, password]))
+                window.location.href = '/index.html'
+                e.preventDefault()
+                return false
+            }
+        }
+    </script>
+</body>
+
+</html>
