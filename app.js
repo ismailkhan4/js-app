@@ -109,5 +109,5 @@ function changeNumberOfUnits(action, id) {
 
 function logout(){
     localStorage.removeItem('ismail')
-    window.location.href = '/index.html'
+    window.location.href = 'index.html'
 }
